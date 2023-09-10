@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Kaalis Model</title>
+
+    <style>
+	
+	.node {
+		cursor: pointer;
+	}
+
+	.node circle {
+	  fill: #fff;
+	  stroke: steelblue;
+	  stroke-width: 3px;
+	}
+
+	.node text {
+	  font: 12px sans-serif;
+	}
+
+	.link {
+	  fill: none;
+	  stroke: #ccc;
+	  stroke-width: 2px;
+	}
+	
+    </style>
+
+  </head>
+
+  <body style="background-color:#38b6ff;font-family:  Helvetica, Arial, sans-serif ">
+  	<h1 style="text-align: center;border-collapse: #ffcc;text-decoration: underline;"> KAALISI </h1>
+
+
+    <!--
+    <h1 style="text-align: center;color: blue;font-size: 60px"><em>KAALIS<em></h1>
+
+   <p style="text-align: right;"> ___________________<em style="font-size: 40px;">KAALIS</em>_________________</h3>
+    <p style="text-align: right;font-size: 11px">  Kaalis est une application web offrant une multitude de fonctionnalité basées sur les statistiques</br> Il offre ses serices aux investisseurs, entrepreneurs, intitutions financières, marchés, compagnies</br>
+    banques, statisciens, out-developers; à travers des niveaux d'accès, et de ses types d'utilisateurs .</br> </br><strong>____________________________________SERVICE________________________________</strong></br></br>
+    <strong>ECONOMIE NATIONALE :</strong> A ce niveau, kaalis offre les statistiques  de l'Economie Nationale, telques:
+  </br> <mark>
+    le taux d'import-export, le taux de production, le taux d'emploi, taux de dette. L'objectif de <strong> KAALIS </strong> à ce </mark></br> 
+      niveau est d'offrir à ses utilsateurs  une vue d'ensemble de l'économie Nationale. L'accès y est publique.</br></br>
+      <strong>LES RESSOURCES :</strong>
+       A ce niveau, KAALIS offre à ses utilsateurs les statistique des ressources locaux. </br>
+     Telques :  le taux de production, le prix sur les marchés locaux et les marchés marché internationals, les </br>
+     cites d'exploitations, classifications selon sa place dans l'économie nationale, les business d'exploitation.</br>
+     KAALIS met en evidence à ce niveau les ressources de valeurs et leur businesses alimentant l'économie.</br></br>
+     <strong>
+       ENTREPRISE
+     </strong> : A ce niveau KAALIS presente les  statisques des entreprises nationales. Telque : le capital,</br>
+      la catégorie, la croissance, classement par rapport aux autres entreprises, production. Le classement se fait</br>
+    selon les points obtenue. Point basé sur : nombre de jeunes employés, conséquences écologiques, le type</br>
+    Les methodes de travail en cas de pandemie et de post-pandemie. Kaalis permet également à ce niveau d'aider.
+  -->
+
+
+  </p>
+
+    
+   
+<!-- load the d3.js library -->	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+	
+<script>
+ 
+
+
+
+ var treeData = [
+  {
+    "name": "KAALIS",
+    "parent": "null",
+    "children": [
+
+      {
+        "name": "USERS",
+        "parent": "KAALIS",
+        "children": [
+          {
+            "name": "ENTREPRISES",
+            "parent": "UTILISATEURS",
+            "children" : [
+            {
+            	"name"  : "START-UP",
+            	"parent": "ENTREPRISES"
+            },
+
+            {
+            	"name" : "SOCIÉTÉS ",
+
+            	"parent" : "ENTREPRISES"
+            },
+            {
+            	"name" : "COMPAGNIES",
+            	"parent" : "ENTREPRISES"
+            }
+
+            ]
+
+          },
+          {
+            "name": "INVESTISSEURS",
+            "parent": "UTILISATEURS",
+           "children" : [
+
+           	{
+            	"name" : "INVESTISSEURS POTENTIELS",
+            	"parent" : "INVESTISSEURS"
+            	
+            },
+           
+
+
+            {
+            	"name" : "INSTITUTIONS FINANCIERES",
+
+            	"parent" : "INVESTISSEURS"
+
+
+            },
+
+             {
+            	"name" : "BANQUES",
+            	"parent" : "INVESTISSEURS"
+            	
+            },
+
+            {
+            	"name" : "COMPAGNIES D'INVESTISSEMENT",
+
+            	"parent" : "INVESTISSEMENT"
+            	
+
+            }
+
+
+
+           ]
+          }
+
+        
+
+        ]
+      },
+      {
+        "name": "SERVICE",
+        "parent": "KAALIS",
+        "children" : [
+        {
+        	"name" : "CLASSEMENT",
+        	"parent" : "SERVICE", 
+        	"children" : [
+        	{
+        		"name" : "MODÈLES STATISTIQUES ",
+        		"parent" : "CLASSEMENT DES ENTREPRISES",
+        		"children" : [
+        		{
+        			"name" : "STANDARD",
+        			"parent" : "MODÈLES STATISTIQUES",
+        			"children"  : [
+        			{
+        				"name" : "COVID_SCORE",
+        				"parent" : "MODELE STANDARD"
+        			},
+        			{
+        				"name" : "ENVIRONNEMENT_SCORE",
+        				"parent" : "MODELE STANDARD",
+        			},
+        			{
+        				"name" : "FINANCE_SCORE",
+        				"parent" : "MODELE STANDARD"
+        			},
+        			{
+        				"name" : "AGE_SCORE",
+        				"parent" : "MODELE STANDARD"
+        			}
+        			]
+        		},
+        		{ 
+        		       "name" : "CUSTOMISÉ",
+        		       "parent" : "MODELES STATISTIQUES",
+        		       "children" : [
+        		          {
+        		             "name" : "MODÈLE PERSONNALISÉ PAR L'INVESTISSEUR",
+        		             "parent" : "MODÈLE CUSTOMISÉ"
+        	              } 
+
+        		]
+
+        	},
+
+        	{
+        		      "name" : "MODÈLE RECOMMANDÉ",
+        		      "parent" : "MODELES STATISTIQUES",
+        		      "children" : [
+        		         {
+   
+        		             "name" : "INTELLIGENCE ARTIFICIELLE",
+        		             "parent" : "MODELE RECOMMANDÉ"
+        	             }
+        		]
+        	}
+
+
+        		]
+        	}
+
+        	
+        	]
+        }
+        
+
+
+        
+
+        
+
+
+
+        ]
+      }
+    ]
+  }
+];
+
+
+
+
+
+// ************** Generate the tree diagram	 *****************
+var margin = {top: 20, right: 120, bottom: 20, left: 120},
+	width = 1800 - margin.right - margin.left,
+	height = 700 - margin.top - margin.bottom;
+	
+var i = 0,
+	duration = 750,
+	root;
+
+var tree = d3.layout.tree()
+	.size([height, width]);
+
+var diagonal = d3.svg.diagonal()
+	.projection(function(d) { return [d.y, d.x]; });
+
+var svg = d3.select("body").append("svg")
+	.attr("width", width + margin.right + margin.left)
+	.attr("height", height + margin.top + margin.bottom)
+  .append("g")
+	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+root = treeData[0];
+root.x0 = height / 2;
+root.y0 = 0;
+  
+update(root);
+
+d3.select(self.frameElement).style("height", "500px");
+
+function update(source) {
+
+  // Compute the new tree layout.
+  var nodes = tree.nodes(root).reverse(),
+	  links = tree.links(nodes);
+
+  // Normalize for fixed-depth.
+  nodes.forEach(function(d) { d.y = d.depth * 180; });
+
+  // Update the nodes…
+  var node = svg.selectAll("g.node")
+	  .data(nodes, function(d) { return d.id || (d.id = ++i); });
+
+  // Enter any new nodes at the parent's previous position.
+  var nodeEnter = node.enter().append("g")
+	  .attr("class", "node")
+	  .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+	  .on("click", click);
+
+  nodeEnter.append("circle")
+	  .attr("r", 1e-6)
+	  .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+  nodeEnter.append("text")
+	  .attr("x", function(d) { return d.children || d._children ? -13 : 13; })
+	  .attr("dy", ".35em")
+	  .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+	  .text(function(d) { return d.name; })
+	  .style("fill-opacity", 1e-6);
+
+  // Transition nodes to their new position.
+  var nodeUpdate = node.transition()
+	  .duration(duration)
+	  .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+
+  nodeUpdate.select("circle")
+	  .attr("r", 10)
+	  .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+  nodeUpdate.select("text")
+	  .style("fill-opacity", 1);
+
+  // Transition exiting nodes to the parent's new position.
+  var nodeExit = node.exit().transition()
+	  .duration(duration)
+	  .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+	  .remove();
+
+  nodeExit.select("circle")
+	  .attr("r", 1e-6);
+
+  nodeExit.select("text")
+	  .style("fill-opacity", 1e-6);
+
+  // Update the links…
+  var link = svg.selectAll("path.link")
+	  .data(links, function(d) { return d.target.id; });
+
+  // Enter any new links at the parent's previous position.
+  link.enter().insert("path", "g")
+	  .attr("class", "link")
+	  .attr("d", function(d) {
+		var o = {x: source.x0, y: source.y0};
+		return diagonal({source: o, target: o});
+	  });
+
+  // Transition links to their new position.
+  link.transition()
+	  .duration(duration)
+	  .attr("d", diagonal);
+
+  // Transition exiting nodes to the parent's new position.
+  link.exit().transition()
+	  .duration(duration)
+	  .attr("d", function(d) {
+		var o = {x: source.x, y: source.y};
+		return diagonal({source: o, target: o});
+	  })
+	  .remove();
+
+  // Stash the old positions for transition.
+  nodes.forEach(function(d) {
+	d.x0 = d.x;
+	d.y0 = d.y;
+  });
+}
+
+// Toggle children on click.
+function click(d) {
+  if (d.children) {
+	d._children = d.children;
+	d.children = null;
+  } else {
+	d.children = d._children;
+	d._children = null;
+  }
+  update(d);
+}
+
+</script>
+	
+  </body>
+</html>
